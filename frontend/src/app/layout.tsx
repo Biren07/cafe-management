@@ -60,7 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
-      <body className="bg-slate-50 text-slate-900 antialiased selection:bg-amber-500 selection:text-white">
+      <body className="bg-slate-50 text-slate-900 antialiased selection:bg-amber-500 selection:text-white" suppressHydrationWarning>
         <AppProviders>{children}</AppProviders>
       </body>
     </html>

@@ -54,7 +54,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
 
       {/* ── TOP NAVIGATION ───────────────────────── */}
-      <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5">
           {/* Brand */}
           <Link
@@ -86,10 +86,15 @@ export default function HomePage() {
       <main className="flex flex-1 flex-col items-center">
 
         {/* ── HERO ─────────────────────────────────── */}
-        <section className="relative w-full overflow-hidden border-b border-slate-200/60 bg-gradient-to-b from-white to-slate-50/50">
+        <section className="relative w-full overflow-hidden border-b border-slate-200/70 bg-gradient-to-b from-white via-amber-50/25 to-slate-50">
+          {/* Ambient Glow */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 flex justify-center">
+            <div className="h-72 w-[600px] rounded-full bg-gradient-to-tr from-amber-200/25 via-orange-100/20 to-transparent blur-3xl" />
+          </div>
+
           <div className="relative mx-auto flex max-w-4xl flex-col items-center px-5 pb-20 pt-16 text-center sm:pt-24 sm:pb-24">
             {/* Badge */}
-            <Badge className="mb-6 gap-1.5 px-3.5 py-1 text-xs font-semibold border-amber-200/80 bg-amber-50 text-amber-800 shadow-2xs">
+            <Badge className="mb-6 gap-1.5 px-3.5 py-1 text-xs font-semibold border-amber-200/90 bg-amber-50 text-amber-800 shadow-2xs">
               <Coffee size={13} className="text-amber-700" />
               Enterprise Cafe Management System
             </Badge>
@@ -97,7 +102,7 @@ export default function HomePage() {
             {/* Heading */}
             <h1 className="font-heading text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl lg:text-7xl">
               Fresh Coffee.{' '}
-              <span className="text-amber-600">
+              <span className="bg-gradient-to-r from-amber-600 via-amber-500 to-orange-600 bg-clip-text text-transparent">
                 Effortless Operations.
               </span>
             </h1>
@@ -111,7 +116,7 @@ export default function HomePage() {
             <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
               <Link
                 href="/dashboard"
-                className="inline-flex items-center gap-2 rounded-xl bg-amber-600 px-7 py-3 text-sm font-semibold text-white shadow-xs transition-all hover:bg-amber-700 hover:shadow-sm hover:-translate-y-0.5 active:scale-[0.98]"
+                className="inline-flex items-center gap-2 rounded-xl bg-amber-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-amber-700 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 Launch Dashboard
                 <ArrowRight size={16} />
@@ -119,7 +124,7 @@ export default function HomePage() {
 
               <Link
                 href="/login"
-                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-slate-700 shadow-2xs transition-all hover:bg-slate-50 hover:border-slate-400 hover:text-slate-900 active:scale-[0.98]"
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-slate-800 shadow-2xs transition-all hover:bg-slate-100 hover:border-slate-400 hover:text-slate-900 active:scale-[0.98]"
               >
                 Sign In to Portal
               </Link>
@@ -128,9 +133,9 @@ export default function HomePage() {
         </section>
 
         {/* ── FEATURE HIGHLIGHTS ───────────────────── */}
-        <section className="w-full py-20">
+        <section className="w-full py-20 bg-slate-50">
           <div className="mx-auto max-w-5xl px-5">
-            <p className="mb-10 text-center text-xs font-semibold uppercase tracking-widest text-slate-400">
+            <p className="mb-10 text-center text-xs font-semibold uppercase tracking-widest text-slate-500">
               Core Cafe Capabilities
             </p>
 
@@ -138,15 +143,15 @@ export default function HomePage() {
               {features.map(({ icon: Icon, title, description }) => (
                 <div
                   key={title}
-                  className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-200"
+                  className="group rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs hover:shadow-md hover:border-amber-300/80 transition-all duration-200"
                 >
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-700 border border-amber-200/70">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-700 border border-amber-200/80 transition-transform group-hover:scale-105">
                     <Icon size={22} strokeWidth={2.2} />
                   </div>
                   <h3 className="mb-2 font-heading text-base font-bold text-slate-900">
                     {title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-slate-500">
+                  <p className="text-sm leading-relaxed text-slate-600">
                     {description}
                   </p>
                 </div>
