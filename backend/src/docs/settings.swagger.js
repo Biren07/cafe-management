@@ -37,7 +37,7 @@
  *           example: Thank you for dining with us! Please come again.
  *         businessHours:
  *           type: string
- *           example: Mon - Sun: 08:00 AM - 10:00 PM
+ *           example: "Mon - Sun: 08:00 AM - 10:00 PM"
  *         taxPercentage:
  *           type: number
  *           example: 13
@@ -143,7 +143,7 @@
  *                 example: Hope you enjoyed your meal! See you soon.
  *               businessHours:
  *                 type: string
- *                 example: Mon - Sun: 07:00 AM - 11:00 PM
+ *                 example: "Mon - Sun: 07:00 AM - 11:00 PM"
  *               taxPercentage:
  *                 type: number
  *                 example: 13

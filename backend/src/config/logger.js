@@ -49,14 +49,12 @@ export const logger = winston.createLogger({
   ],
 });
 
-// Add console transport in non-production environment
-if (!envConfig.isProduction) {
-  logger.add(
-    new winston.transports.Console({
-      format: consoleFormat,
-    })
-  );
-}
+// Console transport for container / cloud hosting logs (Render, Docker, local)
+logger.add(
+  new winston.transports.Console({
+    format: envConfig.isProduction ? logFormat : consoleFormat,
+  })
+);
 
 // Stream object for Morgan HTTP request logging
 logger.stream = {

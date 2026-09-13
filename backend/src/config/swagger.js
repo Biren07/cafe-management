@@ -16,8 +16,12 @@ const swaggerOptions = {
     },
     servers: [
       {
+        url: '/api/v1',
+        description: 'Current API Server (Auto-detected)',
+      },
+      {
         url: `http://localhost:${envConfig.port}/api/v1`,
-        description: 'Development Server',
+        description: 'Development Server (Localhost)',
       },
     ],
     components: {

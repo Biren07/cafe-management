@@ -7,8 +7,8 @@ dotenv.config({ path: path.resolve(process.cwd(), '.env') });
 export const envConfig = Object.freeze({
   env: process.env.NODE_ENV || 'development',
   port: parseInt(process.env.PORT, 10) || 5000,
-  isProduction: process.env.NODE_ENV === 'production',
-  isDevelopment: process.env.NODE_ENV === 'development',
+  isProduction: (process.env.NODE_ENV || 'development') === 'production',
+  isDevelopment: (process.env.NODE_ENV || 'development') === 'development',
   
   db: {
     uri: process.env.MONGODB_URI || 'mongodb+srv://dhamib610_db_user:cafemanage@cluster0.vfeuhxi.mongodb.net/cafe_management_db?retryWrites=true&w=majority&appName=Cluster0',

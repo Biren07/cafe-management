@@ -62,9 +62,15 @@ export const errorHandler = (err, req, res, next) => {
     ...(envConfig.isDevelopment && { stack: error.stack }),
   };
 
-  logger.error(
-    `${error.statusCode} - ${error.message} - ${req.originalUrl} - ${req.method} - ${req.ip}\nStack: ${error.stack}`
-  );
+  if (error.statusCode >= 500) {
+    logger.error(
+      `${error.statusCode} - ${error.message} - ${req.originalUrl} - ${req.method} - ${req.ip}\nStack: ${error.stack}`
+    );
+  } else {
+    logger.warn(
+      `${error.statusCode} - ${error.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`
+    );
+  }
 
   return res.status(error.statusCode).json(response);
 };
